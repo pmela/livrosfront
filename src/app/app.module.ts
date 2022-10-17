@@ -10,10 +10,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
+import { AddlivroComponent } from './addlivro/addlivro.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddlivroComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +31,9 @@ import {MatInputModule} from '@angular/material/input';
     MatIconModule,
     MatInputModule,
     HttpClientModule,
+    MatDialogModule,
+    MatSelectModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

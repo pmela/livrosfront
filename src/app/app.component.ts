@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddlivroComponent } from './addlivro/addlivro.component';
 import { LivrosService } from './livros.service'
 
-export interface Livro{
+export interface Livro {
   nome: string;
   autor: string;
   categoria: string;
@@ -18,8 +20,18 @@ export class AppComponent {
   title = 'livrosfront';
   livros: Livro[] = []
   constructor(
-    private livroservice: LivrosService
-  ) { this.exibeLivro() }
+    private livroservice: LivrosService,
+    public dialog: MatDialog
+  ) { 
+    this.exibeLivro()
+  }
+
+  openDialog() {
+    let meumodal = this.dialog.open(AddlivroComponent);
+    meumodal.afterClosed().subscribe((resultado)=>{
+      this.exibeLivro()
+    })
+  }
 
   exibeLivro() {
     this.livroservice.exibeLivro().subscribe(
@@ -32,4 +44,6 @@ export class AppComponent {
       }
     )
   }
+
+
 }

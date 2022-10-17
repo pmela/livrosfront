@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Adicione um Livro</h1>
+<div fxLayout="column" fxLayoutAlign="space-between stretch">
+    <mat-form-field appearance="fill">
+        <mat-label>Nome do Livro</mat-label>
+        <input matInput [(ngModel)]="livro.nome">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Autor(a)</mat-label>
+        <input matInput [(ngModel)]="livro.autor">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select [(ngModel)]="livro.categoria" >
+            <mat-option value="Romance">Romance</mat-option>
+            <mat-option value="Terror">Terror</mat-option>
+            <mat-option value="Suspense">Suspense</mat-option>
+            <mat-option value="Comedia">Comedia</mat-option>
+            <mat-option value="Quadrinhos">Quadrinhos</mat-option>
+            <mat-option value="Infantil">Infantil</mat-option>
+            <mat-option value="Drama">Drama</mat-option>
+            <mat-option value="Ficcao">Ficção</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Sinopse</mat-label>
+        <textarea matInput [(ngModel)]="livro.descricao"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button (click)="salvaLivro()">Salvar</button>
+</div>
