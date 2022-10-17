@@ -20,55 +20,14 @@
 </div>
 
 <br>
-<div fxLayout="row" fxLayoutAlign="space-between stretch">
-  <mat-card class="example-card">
-    <mat-card-title>O inferno de Dante</mat-card-title>
-    <mat-card-subtitle>Romance</mat-card-subtitle>
+<div  fxLayout="row" fxLayoutAlign="space-between stretch">
+  <mat-card *ngFor="let livro of livros" class="example-card">
+    <mat-card-title>{{livro.nome}}</mat-card-title>
+    <mat-card-subtitle>{{livro.categoria}}</mat-card-subtitle>
     <mat-card-content>
-      <p>Silvia Araújo</p>
+      <p>{{livro.autor}}</p>
       <p>Sinopse</p>
-      <p>De acordo com a gravidade dos pecados cometidos em vida,
-        Dante descreve o castigo para cada grupo: os tiranos, os
-        traidores, os aduladores, os suicidas, os heréticos, dentre
-        outros. Na última parte ele encontra com Lúcifer, o demônio
-        traidor que devora os três
-        maiores traidores da história: Judas, Brutus e Cassius.</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Já Li</button>
-      <button mat-button>Vou Ler</button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-title>O inferno de Dante</mat-card-title>
-    <mat-card-subtitle>Romance</mat-card-subtitle>
-    <mat-card-content>
-      <p>Silvia Araújo</p>
-      <p>Sinopse</p>
-      <p>De acordo com a gravidade dos pecados cometidos em vida,
-        Dante descreve o castigo para cada grupo: os tiranos, os
-        traidores, os aduladores, os suicidas, os heréticos, dentre
-        outros. Na última parte ele encontra com Lúcifer, o demônio
-        traidor que devora os três
-        maiores traidores da história: Judas, Brutus e Cassius.</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Já Li</button>
-      <button mat-button>Vou Ler</button>
-    </mat-card-actions>
-  </mat-card>
-  <mat-card class="example-card">
-    <mat-card-title>O inferno de Dante</mat-card-title>
-    <mat-card-subtitle>Romance</mat-card-subtitle>
-    <mat-card-content>
-      <p>Silvia Araújo</p>
-      <p>Sinopse</p>
-      <p>De acordo com a gravidade dos pecados cometidos em vida,
-        Dante descreve o castigo para cada grupo: os tiranos, os
-        traidores, os aduladores, os suicidas, os heréticos, dentre
-        outros. Na última parte ele encontra com Lúcifer, o demônio
-        traidor que devora os três
-        maiores traidores da história: Judas, Brutus e Cassius.</p>
+      <p>{{livro.descricao}}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>Já Li</button>

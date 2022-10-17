@@ -1,6 +1,14 @@
 import { Component } from '@angular/core';
 import { LivrosService } from './livros.service'
 
+export interface Livro{
+  nome: string;
+  autor: string;
+  categoria: string;
+  descricao: string;
+
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,16 +16,18 @@ import { LivrosService } from './livros.service'
 })
 export class AppComponent {
   title = 'livrosfront';
+  livros: Livro[] = []
   constructor(
     private livroservice: LivrosService
-  ) { this.exibeLivro()}
+  ) { this.exibeLivro() }
 
-  exibeLivro(){
+  exibeLivro() {
     this.livroservice.exibeLivro().subscribe(
-      (listalivro)=>{
-        console.log('lista de livros',listalivro)
+      (listalivro) => {
+        this.livros = listalivro
+        console.log('lista de livros', listalivro)
       },
-      (erro:Error)=>{
+      (erro: Error) => {
         console.log(erro)
       }
     )
