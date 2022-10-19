@@ -10,7 +10,7 @@ import { LivrosService } from '../livros.service';
 })
 export class AddlivroComponent implements OnInit {
 
-  livro:Livro={autor:'', nome: '', categoria:'', descricao:''}
+  livro:Livro={id:0,autor:'', nome: '', categoria:'', descricao:''}
   constructor(private livroservice: LivrosService,public dialogRef: MatDialogRef<AddlivroComponent>) { }
 
   ngOnInit(): void {

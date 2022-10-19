@@ -1,7 +1,7 @@
 <br>
 
 <div fxLayout="colunn" fxLayoutAlign="space-between center">
-  
+
   <div fxLayout="row" fxFlex="50" fxLayoutAlign="left center">
     <h1>Bem Vindo(a)</h1>
   </div>
@@ -14,7 +14,7 @@
   </div>
 </div>
 <div fxLayout="colunn" fxLayoutAlign="end center">
-  
+
   <div fxLayout="row" fxLayoutAlign="end center">
     <button mat-button (click)="openDialog()">Launch dialog</button>
   </div>
@@ -22,8 +22,11 @@
 
 <br>
 <br>
-<div fxLayout="row"  fxLayoutAlign="space-between stretch">
-  <mat-card  fxFlex="30" Layout-Wrap *ngFor="let livro of livros" class="example-card">
+<div fxLayout="row" fxLayoutAlign="space-between stretch">
+  <mat-card fxFlex="30" *ngFor="let livro of livros" class="example-card">
+    <mat-icon (click)="excluirLivro(livro.id)" class="material-symbols-outlined">
+      delete
+    </mat-icon >
     <mat-card-title>{{livro.nome}}</mat-card-title>
     <mat-card-subtitle>{{livro.categoria}}</mat-card-subtitle>
     <mat-card-content>
@@ -46,7 +49,7 @@
     <img src="assets/images/livromaislido.jpg" class="fundo">
   </div>
   <div fxLayout="colunn" fxFlex="50" fxLayoutAlign="end center">
-  
+
     <div fxLayout="column">
       <h1> A garota do lago</h1>
       <p>
@@ -62,7 +65,7 @@
         com Becca pode ser a chave para superar as marcas sombrias de seu próprio passado.
       </p>
     </div>
-    
+
   </div>
 
 
