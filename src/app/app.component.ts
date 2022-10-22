@@ -19,9 +19,13 @@ export interface Livro {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
   title = 'livrosfront';
+
   livros: Livro[] = []
-  
+
+  nomelivrohtml: string = ''
+
   constructor(
     private rota: Router,
     private livroservice: LivrosService,
@@ -30,14 +34,16 @@ export class AppComponent {
     this.exibeLivro()
   }
   openDialog() {
-    let meumodal = this.dialog.open(AddlivroComponent);
+    let meumodal = this.dialog.open(AddlivroComponent, {
+      width: '40em'
+    });
     meumodal.afterClosed().subscribe((resultado) => {
       this.exibeLivro()
     })
   }
 
   exibeLivro() {
-    this.livroservice.exibeLivro().subscribe(
+    this.livroservice.exibeLivro(this.nomelivrohtml).subscribe(
       (listalivro) => {
         this.livros = listalivro
         console.log('lista de livros', listalivro)
@@ -52,6 +58,7 @@ export class AppComponent {
     this.livroservice.excluirLivro(id).subscribe(
       (respostaexcluir: any) => {
         console.log(respostaexcluir);
+        this.exibeLivro()
         // this.rota.navigate(['livro']);
       },
 

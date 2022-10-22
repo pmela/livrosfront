@@ -1,0 +1,40 @@
+.container {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.botaoadd {
+    background-color: #fdc55d;
+}
+
+
+.fundo-angular {
+    background-color: #f4f7fc;
+}
+
+.fundo-branco {
+    background-color: #ffffff;
+}
+
+
+.titulo {
+    font-family: "Playfair Display";
+    font-size: 3.3em;
+    color: #fdc55d;
+    text-align: center;
+}
+
+.texto {
+    font-family: "Playfair Display";
+    font-size: 2em;
+    line-height: 1em;
+    text-align: justify;
+}
+
+.textop {
+    font-family: "Playfair Display";
+    font-size: 1.6em;
+    line-height: 1em;
+    text-align: justify;
+}
+

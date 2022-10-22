@@ -13,8 +13,8 @@ export class LivrosService {
     private http: HttpClient,
   ) { }
 
-  exibeLivro(): Observable<any> {
-    return this.http.get<any>('http://127.0.0.1:8000/livros/')
+  exibeLivro(nomelivro?: string): Observable<any> {
+    return this.http.get<any>('http://127.0.0.1:8000/livros/', { params: { nomelivroback: String(nomelivro) } })
   }
 
   salvaLivro(livro: Livro): Observable<any> {
@@ -22,7 +22,7 @@ export class LivrosService {
   }
 
   excluirLivro(id: number): Observable<any> {
-    return this.http.delete<any>('http://127.0.0.1:8000/livros/'+ String(id))
+    return this.http.delete<any>('http://127.0.0.1:8000/livros/' + String(id) + '/')
   }
 
 }

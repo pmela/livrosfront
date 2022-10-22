@@ -1,77 +1,83 @@
-<br>
+<div class="container">
+  <br>
+  <div fxLayout="colunn" fxLayoutAlign="space-between center">
 
-<div fxLayout="colunn" fxLayoutAlign="space-between center">
-
-  <div fxLayout="row" fxFlex="50" fxLayoutAlign="left center">
-    <h1>Bem Vindo(a)</h1>
+    <div fxLayout="row" fxFlex="50" fxLayoutAlign="left center">
+      <h1>Bem Vindo(a)</h1>
+    </div>
+    <div fxLayout="row" fxFlex="50" fxLayoutAlign="end center">
+      <mat-form-field appearance="standard">
+        <mat-label>Pesquise pelo nome do livro</mat-label>
+        <input [(ngModel)]="nomelivrohtml" (ngModelChange)="exibeLivro()" matInput placeholder="O Inferno de Dante">
+        <mat-icon matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
   </div>
-  <div fxLayout="row" fxFlex="50" fxLayoutAlign="end center">
-    <mat-form-field appearance="standard">
-      <mat-label>Pesquise pelo nome do livro, autor ou categoria</mat-label>
-      <input matInput placeholder="O Inferno de Dante">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
+  <div fxLayout="colunn" fxLayoutAlign="end center">
+
+    <div fxLayout="row" fxLayoutAlign="end center">
+      <button class="botaoadd" mat-raised-button (click)="openDialog()">Adicionar Livro</button>
+    </div>
   </div>
-</div>
-<div fxLayout="colunn" fxLayoutAlign="end center">
 
-  <div fxLayout="row" fxLayoutAlign="end center">
-    <button mat-button (click)="openDialog()">Launch dialog</button>
+  <br>
+  <br>
+  <div fxLayout="row wrap" fxLayoutGap="1.5em grid">
+    <div fxFlex="33" *ngFor="let livro of livros" fxLayoutAlign="space-between stretch">
+      <mat-card fxFlex="100" fxLayout="column" fxLayoutAlign="space-between stretch">
+        <div fxLayoutAlign="end center">
+          <mat-icon (click)="excluirLivro(livro.id)" class="material-symbols-outlined">
+            delete
+          </mat-icon>
+        </div>
+        <br>
+
+        <mat-card-title fxLayoutAlign="start">{{livro.nome}}</mat-card-title>
+        <mat-card-subtitle>{{livro.categoria}}</mat-card-subtitle>
+        <mat-card-content>
+          <p>{{livro.autor}}</p>
+          <p>Sinopse:</p>
+          <p class="textop">{{livro.descricao}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>Já Li</button>
+          <button mat-button>Vou Ler</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
-</div>
 
-<br>
-<br>
-<div fxLayout="row" fxLayoutAlign="space-between stretch">
-  <mat-card fxFlex="30" *ngFor="let livro of livros" class="example-card">
-    <mat-icon (click)="excluirLivro(livro.id)" class="material-symbols-outlined">
-      delete
-    </mat-icon >
-    <mat-card-title>{{livro.nome}}</mat-card-title>
-    <mat-card-subtitle>{{livro.categoria}}</mat-card-subtitle>
-    <mat-card-content>
-      <p>{{livro.autor}}</p>
-      <p>Sinopse</p>
-      <p>{{livro.descricao}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Já Li</button>
-      <button mat-button>Vou Ler</button>
-    </mat-card-actions>
-  </mat-card>
+  <br>
+  <br>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="img" fxLayout="colunn" fxFlex="50" fxLayoutAlign="space-between center">
+      <img style="width:500px" src="assets/images/livromaislido.jpg" class="fundo">
+    </div>
+    <div fxLayout="colunn" fxFlex="50" fxLayoutAlign="end center">
 
-</div>
+      <div fxLayout="column">
+        <h1 class="titulo"> A garota do lago</h1>
+        <p class="texto">
+          Summit Lake, uma pequena cidade entre montanhas, é esse tipo de lugar, bucólico e com
+          encantadoras casas dispostas à beira de um longo trecho de água intocada.Duas semanas
+          atrás, a estudante de direito Becca Eckersley foi brutalmente assassinada em uma dessas
+          casas. Filha de um poderoso advogado, Becca estava no auge de sua vida.
+          Atraída instintivamente pela notícia, a repórter Kelsey Castle vai até a cidade
+          para investigar o caso. ...E LOGO SE ESTABELECE UMA CONEXÃO ÍNTIMA QUANDO UM VIVO
+          CAMINHA NAS MESMAS PEGADAS DOS MORTOS...E enquanto descobre sobre as amizades de Becca,
+          sua vida amorosa e os segredos que ela guardava, a repórter fica cada vez mais convencida
+          de que a verdade sobre o que aconteceu
+          com Becca pode ser a chave para superar as marcas sombrias de seu próprio passado.
+        </p>
+      </div>
 
-<br>
-<br>
-<div fxLayout="row" fxLayoutAlign="space-between center">
-  <div fxLayout="colunn" fxFlex="50" fxLayoutAlign="space-between center">
-    <img src="assets/images/livromaislido.jpg" class="fundo">
-  </div>
-  <div fxLayout="colunn" fxFlex="50" fxLayoutAlign="end center">
-
-    <div fxLayout="column">
-      <h1> A garota do lago</h1>
-      <p>
-        Summit Lake, uma pequena cidade entre montanhas, é esse tipo de lugar, bucólico e com
-        encantadoras casas dispostas à beira de um longo trecho de água intocada.Duas semanas
-        atrás, a estudante de direito Becca Eckersley foi brutalmente assassinada em uma dessas
-        casas. Filha de um poderoso advogado, Becca estava no auge de sua vida.
-        Atraída instintivamente pela notícia, a repórter Kelsey Castle vai até a cidade
-        para investigar o caso. ...E LOGO SE ESTABELECE UMA CONEXÃO ÍNTIMA QUANDO UM VIVO
-        CAMINHA NAS MESMAS PEGADAS DOS MORTOS...E enquanto descobre sobre as amizades de Becca,
-        sua vida amorosa e os segredos que ela guardava, a repórter fica cada vez mais convencida
-        de que a verdade sobre o que aconteceu
-        com Becca pode ser a chave para superar as marcas sombrias de seu próprio passado.
-      </p>
     </div>
 
+
   </div>
-
-
-</div>
-<br>
-<br>
-<div fxLayout="row" fxLayoutAlign="center center">
-  <h3>Criado por Pâmela Araújo</h3>
+  <br>
+  <br>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <h3>Criado por Pâmela Araújo</h3>
+  </div>
 </div>
